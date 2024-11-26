@@ -6,14 +6,14 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 12:29:22 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/11/26 18:09:30 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/11/26 18:30:58 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STACK_H
 # define STACK_H
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 
 int		parse(int argc, char **argv, t_list *a);
 void	initialisation(char **argv, t_list *head);

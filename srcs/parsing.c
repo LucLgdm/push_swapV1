@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 18:00:12 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/11/26 18:04:47 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/11/26 18:12:01 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	initialisation(char **argv, t_list *head)
 		{
 			ft_lstclear(&head, free);
 			ft_putstr_fd("Error\n", 2);
-			exit(1);
+			exit(EXIT_FAILURE);
 		} ;
 		*num = ft_atoi(argv[i]);
 		ft_lstadd_back(&head, ft_lstnew(num));
@@ -47,7 +47,7 @@ int	check_arg(int argc, char **argv)
 		if (ft_isinteger(argv[i]) != 0)
 		{
 			ft_putstr_fd("Error\n", 2);
-			return (1);
+            exit(EXIT_FAILURE);
 		}
 	}
 	return (0);

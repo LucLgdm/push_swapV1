@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 12:28:53 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/11/26 18:07:39 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/11/26 18:32:11 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	main(int argc, char **argv)
 	t_list	*a;
 	int		size;
 
+    a = NULL;
 	size = parse(argc, argv, a);
 	if (size == 1)
 		return (0);
