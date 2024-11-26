@@ -1,0 +1,24 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Déboguer Programme C/C++",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/push_swap",
+            "args": ["0", "2", "5", "6", "-65", "4", "5", "12", "36"], // Arguments si nécessaire
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false, // Mettre à true si tu veux une console externe
+            "MIMode": "gdb", // ou "lldb" si tu utilises LLDB
+            "setupCommands": [
+                {
+                    "description": "Activer le formatage",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}
