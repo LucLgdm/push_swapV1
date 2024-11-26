@@ -6,16 +6,16 @@
 #    By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/25 12:24:12 by lde-merc          #+#    #+#              #
-#    Updated: 2024/11/25 18:26:50 by lde-merc         ###   ########.fr        #
+#    Updated: 2024/11/26 15:54:30 by lde-merc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 LIBFT = libft/libft.a
 HEADER = push_swap.h
-FILES = main.c operation.c
+FILES = main.c initialisation.c
 SRC = $(FILES)
 OBJ = $(FILES:.c=.o)
 

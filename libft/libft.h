@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:20:13 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/11/25 10:26:59 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/11/26 14:21:01 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+	// ft_printf
 int		ft_printf(const char *s, ...);
 void	ft_char(char c, va_list list, int *counter);
 void	ft_number(char c, va_list list, int *counter);
@@ -69,6 +70,7 @@ void	ft_putnbr_hexa(unsigned long n, char *base, int *counter);
 int		ft_signed_len(int nbr);
 int		ft_unsigned_len(unsigned int nbr);
 void	ft_unsigned_number(unsigned int nbr);
+	// Linked list
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
