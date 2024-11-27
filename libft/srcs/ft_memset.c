@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   littlesort.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 18:00:43 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/11/27 13:46:54 by lde-merc         ###   ########.fr       */
+/*   Created: 2024/11/05 13:01:22 by lde-merc          #+#    #+#             */
+/*   Updated: 2024/11/27 13:55:06 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// Sort for a 2-3-4-5 stack element
-#include "push_swap.h"
+#include "../libft.h"
 
-void    sort_two(t_list **a)
+// Pour travailler dessus
+// Conversion en char
+
+void	*ft_memset(void *s, int c, size_t n)
 {
-    if ((*a)->content > (*a)->next->content)
-        ft_printf("sa\n");
-    exit(EXIT_SUCCESS);
+	unsigned char	*ptr;
+	unsigned char	val;
+	size_t			i;
+
+	if (s == NULL || n == 0)
+		return (s);
+	ptr = s;
+	val = (unsigned char)c;
+	i = 0;
+	while (i < n)
+	{
+		ptr[i] = val;
+		i++;
+	}
+	return (s);
 }

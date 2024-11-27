@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   littlesort.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 18:00:43 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/11/27 13:46:54 by lde-merc         ###   ########.fr       */
+/*   Created: 2024/11/08 15:47:08 by lde-merc          #+#    #+#             */
+/*   Updated: 2024/11/27 13:55:19 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// Sort for a 2-3-4-5 stack element
-#include "push_swap.h"
+#include "../libft.h"
 
-void    sort_two(t_list **a)
+void	ft_putnbr_fd(int n, int fd)
 {
-    if ((*a)->content > (*a)->next->content)
-        ft_printf("sa\n");
-    exit(EXIT_SUCCESS);
+	if (n == -2147483648)
+	{
+		ft_putstr_fd("-2", fd);
+		ft_putnbr_fd(147483648, fd);
+	}
+	else if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		ft_putnbr_fd(-n, fd);
+	}
+	else if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
+	else
+	{
+		ft_putchar_fd(n + '0', fd);
+	}
 }

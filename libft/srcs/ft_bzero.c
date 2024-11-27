@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   littlesort.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 18:00:43 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/11/27 13:46:54 by lde-merc         ###   ########.fr       */
+/*   Created: 2024/11/05 13:09:23 by lde-merc          #+#    #+#             */
+/*   Updated: 2024/11/27 13:53:57 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// Sort for a 2-3-4-5 stack element
-#include "push_swap.h"
+#include "../libft.h"
 
-void    sort_two(t_list **a)
+void	ft_bzero(void *s, size_t n)
 {
-    if ((*a)->content > (*a)->next->content)
-        ft_printf("sa\n");
-    exit(EXIT_SUCCESS);
+	unsigned char	*ptr;
+	size_t			i;
+
+	i = -1;
+	ptr = (unsigned char *)s;
+	while (++i < n)
+		ptr[i] = 0;
 }

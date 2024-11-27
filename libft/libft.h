@@ -6,23 +6,28 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:20:13 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/11/26 14:21:01 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/11/25 15:05:36 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 1024
+#endif
+
 # include "unistd.h"
 # include <stdint.h>
 # include <stdio.h>
 # include <stdlib.h>
 
-typedef struct s_list
+typedef struct s_list	t_list;
+struct s_list
 {
-	void			*content;
-	struct s_list	*next;
-}					t_list;
+	void	*content;
+	t_list	*next;
+};
 
 int		ft_isdigit(int c);
 int		ft_isalpha(int c);
@@ -59,7 +64,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-	// ft_printf
+	// printf
 int		ft_printf(const char *s, ...);
 void	ft_char(char c, va_list list, int *counter);
 void	ft_number(char c, va_list list, int *counter);
@@ -70,7 +75,7 @@ void	ft_putnbr_hexa(unsigned long n, char *base, int *counter);
 int		ft_signed_len(int nbr);
 int		ft_unsigned_len(unsigned int nbr);
 void	ft_unsigned_number(unsigned int nbr);
-	// Linked list
+	// Listes chainees
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
@@ -80,4 +85,10 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+	// get next line
+char	*get_next_line(int fd);
+char	*ft_pickline(char *remainder);
+char	*ft_read_file(int fd, char *rest);
+char    *ft_free(char *buffer, char *buf);
+char	*ft_update(char *rest);
 #endif

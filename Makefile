@@ -6,7 +6,7 @@
 #    By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/25 12:24:12 by lde-merc          #+#    #+#              #
-#    Updated: 2024/11/26 18:34:36 by lde-merc         ###   ########.fr        #
+#    Updated: 2024/11/27 13:44:03 by lde-merc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ INCLUDES = includes/
 all: makelibft $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
-		$(CC) $(CFLAGS) $(OBJ) -L./libft -lft -o $(NAME)
+		$(CC) $(CFLAGS) $(OBJ) -Llibft -lft -o $(NAME)
 		@echo "Creation of the executable $(NAME)"
 		
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c

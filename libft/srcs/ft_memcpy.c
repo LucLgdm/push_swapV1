@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   littlesort.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 18:00:43 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/11/27 13:46:54 by lde-merc         ###   ########.fr       */
+/*   Created: 2024/11/05 13:19:01 by lde-merc          #+#    #+#             */
+/*   Updated: 2024/11/27 13:54:59 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// Sort for a 2-3-4-5 stack element
-#include "push_swap.h"
+#include "../libft.h"
 
-void    sort_two(t_list **a)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-    if ((*a)->content > (*a)->next->content)
-        ft_printf("sa\n");
-    exit(EXIT_SUCCESS);
+	unsigned char	*destcpy;
+	unsigned char	*srccpy;
+	size_t			i;
+
+	i = 0;
+	destcpy = (unsigned char *)dest;
+	srccpy = (unsigned char *)src;
+	while (i < n)
+	{
+		destcpy[i] = srccpy[i];
+		i++;
+	}
+	return (dest);
 }

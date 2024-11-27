@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   littlesort.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 18:00:43 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/11/27 13:46:54 by lde-merc         ###   ########.fr       */
+/*   Created: 2024/11/08 16:40:33 by lde-merc          #+#    #+#             */
+/*   Updated: 2024/11/27 13:54:27 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// Sort for a 2-3-4-5 stack element
-#include "push_swap.h"
+#include "../libft.h"
 
-void    sort_two(t_list **a)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-    if ((*a)->content > (*a)->next->content)
-        ft_printf("sa\n");
-    exit(EXIT_SUCCESS);
+	if (!new)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }

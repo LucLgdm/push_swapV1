@@ -1,33 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 12:28:53 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/11/27 12:03:35 by lde-merc         ###   ########.fr       */
+/*   Created: 2024/11/05 15:59:15 by lde-merc          #+#    #+#             */
+/*   Updated: 2024/11/27 13:53:47 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../libft.h"
 
-int	main(int argc, char **argv)
+int	ft_isspace(char c)
 {
-	t_list	**a;
-	int		size;
-
-    a = NULL;
-	size = parse(argc, argv, a);
-	if (size == 1)
-		return (0);
-	else if (size == 2)
-		sort_two(a);
-	// else if (size == 3)
-	// 	sort_three(a);
-	// else if (size == 4)
-	// 	sort_four(a);
-	// else
-	// 	sort_big(a);
+	if ((c >= 9 && c <= 13) || c == 32)
+		return (1);
 	return (0);
+}
+
+int	ft_atoi(const char *nptr)
+{
+	int		res;
+	int		sign;
+	size_t	i;
+
+	res = 0;
+	sign = 1;
+	i = 0;
+	while (ft_isspace(nptr[i]))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (ft_isdigit(nptr[i]) == 1)
+	{
+		res = 10 * res + nptr[i] - 48;
+		++i;
+	}
+	return (sign * res);
 }

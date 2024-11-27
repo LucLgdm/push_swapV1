@@ -15,9 +15,11 @@ NAME = libft.a
 CC = cc
 AR = ar -rcs
 
-FILES = $(wildcard *.c)
+SRC_DIR = srcs
+OBJ_DIR = obj
+FILES = $(wildcard $(SRC_DIR)/*.c)
 HEADER = libft.h
-OBJ = $(FILES:.c=.o)
+OBJ = $(FILES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 CFLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
@@ -25,11 +27,12 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(AR) $(NAME) $(OBJ)
 
-%.o : %.c $(HEADER)
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(HEADER)
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-clean: 
-	rm -f $(OBJ)
+clean:
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	rm -f $(NAME)
