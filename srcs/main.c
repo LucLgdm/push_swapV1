@@ -6,28 +6,30 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 12:28:53 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/11/27 12:03:35 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:23:36 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	main(int argc, char **argv)
 {
-	t_list	**a;
-	int		size;
+	t_stack	*a;
+	t_stack	*b;
 
-    a = NULL;
-	size = parse(argc, argv, a);
-	if (size == 1)
+	
+	a = parse(argc, argv);
+	if (a->size == 1)
 		return (0);
-	else if (size == 2)
+	else if (a->size == 2)
 		sort_two(a);
-	// else if (size == 3)
+	// else if (a->size == 3)
 	// 	sort_three(a);
-	// else if (size == 4)
+	// else if (a->size == 4)
 	// 	sort_four(a);
 	// else
 	// 	sort_big(a);
+	ft_printf("a->size = %i\n", a->size);
+	free(a);
 	return (0);
 }
