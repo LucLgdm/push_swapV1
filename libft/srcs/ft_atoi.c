@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:59:15 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/11/27 13:53:47 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/11/28 15:58:29 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	ft_isspace(char c)
 	return (0);
 }
 
-int	ft_atoi(const char *nptr)
+long	ft_atoi(const char *nptr)
 {
-	int		res;
-	int		sign;
+	long	res;
+	long	sign;
 	size_t	i;
 
 	res = 0;

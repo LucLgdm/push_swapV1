@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 18:00:12 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/11/28 15:26:13 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/11/28 15:55:28 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_add_arg_stack(t_list **lst, char *arg)
 	else
 	{
 		result = ft_atoi(arg);
-		if (result >= 2147483648) //|| doppel(result, lst))
+		if (result < -2147483648 || result > 2147483647 || doppel(result, lst))
 			error_message(lst);
 		new_elem = ft_lstnew(malloc(sizeof(int)));
 		if (!new_elem)

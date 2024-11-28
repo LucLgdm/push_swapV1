@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 11:25:25 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/11/28 15:19:11 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/11/28 15:44:32 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	doppel(int n, t_list **lst)
     t_list  *tmp;
 
     tmp = *lst;
-	count = 0;
+	count = 1;
 	while (tmp)
 	{
 		if (*(int *)(tmp->content) == n)
@@ -28,6 +28,7 @@ int	doppel(int n, t_list **lst)
                 return (1);
 		}
         tmp = tmp->next;
+        
 	}
 	return (0);
 }
