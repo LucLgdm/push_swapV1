@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 18:00:12 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/11/27 17:03:23 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/11/28 15:26:13 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,83 +18,106 @@ t_stack	*parse(int argc, char **argv)
 {
 	t_stack	*result;
 	t_list	*lst;
+	t_list	*tmp;
 	int		i;
 
 	lst = NULL;
 	i = 0;
+	tmp = lst;
 	while (++i < argc)
-		ft_add_stack(&lst, argv[i]);
+		ft_add_arg_stack(&lst, argv[i]);
 	result = (t_stack *)malloc(sizeof(t_stack));
 	if (!result)
 		error_message(&lst);
-	ft_copy_stack(lst, result);
+	ft_copy_stack(&lst, result);
 	return (result);
 }
 
 void	ft_add_arg_stack(t_list **lst, char *arg)
 {
-	// Cas un seul argument : "0 2 +7 -85", verifier si argument convenable
-	// (int et + et -), doublon
-	// new_elem, addback et on est bon
+	t_list	*new_elem;
+	long	result;
+
+	check_arg(arg, lst);
+	if (ft_strchr(arg, ' '))
+		parse_string(lst, arg);
+	else
+	{
+		result = ft_atoi(arg);
+		if (result >= 2147483648) //|| doppel(result, lst))
+			error_message(lst);
+		new_elem = ft_lstnew(malloc(sizeof(int)));
+		if (!new_elem)
+			error_message(lst);
+		*(int *)(new_elem->content) = result;
+		ft_lstadd_back(lst, new_elem);
+	}
 }
 
-// void	initialisation(char **argv, t_list **head)
-// {
-// 	int		i;
-// 	int		*num;
-// 	t_list	*newnode;
+void	check_arg(char *arg, t_list **lst)
+{
+	int	i;
 
-// 	i = 0;
-// 	while (argv[++i])
-// 	{
-// 		num = (void *)malloc(sizeof(int));
-// 		if (!num)
-// 		{
-// 			ft_lstclear(head, free);
-// 			error_message();
-// 		};
-// 		*num = ft_atoi(argv[i]);
-// 		newnode = ft_lstnew(num);
-// 		if (!newnode)
-// 		{
-// 			free(num);
-// 			ft_lstclear(head, free);
-// 			error_message();
-// 		}
-// 		ft_lstadd_back(head, newnode);
-// 	}
-// }
+	i = 0;
+	while (arg[i])
+	{
+		if (ft_isdigit(arg[i]) || arg[i] == '+' || arg[i] == '-'
+			|| arg[i] == ' ')
+			i++;
+		else
+			error_message(lst);
+	}
+}
 
-// int	check_arg(int argc, char **argv)
-// {
-// 	int	i;
+void	ft_copy_stack(t_list **lst, t_stack *result)
+{
+	t_list	*tmp;
+	int		count;
 
-// 	i = 0;
-// 	if (argc == 1)
-// 		return (1);
-// 	while (argv[++i])
-// 	{
-// 		if (ft_isinteger(argv[i]) != 0)
-// 		{
-// 			ft_putstr_fd("Error\n", 2);
-// 			exit(EXIT_FAILURE);
-// 		}
-// 	}
-// 	return (0);
-// }
+	if (*lst)
+	{
+		count = 0;
+		tmp = *lst;
+		while (tmp)
+		{
+			count++;
+			tmp = tmp->next;
+		}
+		result->stack = (int *)malloc(count * sizeof(int));
+		if (!result)
+			error_message(lst);
+		result->size = count;
+		tmp = *lst;
+		while (tmp)
+		{
+			result->stack[result->size - count] = *(int *)(tmp->content);
+			tmp = tmp->next;
+			count--;
+		}
+	}
+	else
+	{
+		result->stack = NULL;
+		result->size = 0;
+	}
+}
 
-// int	ft_isinteger(char *str)
-// {
-// 	int	i;
+void	parse_string(t_list **lst, char *arg)
+{
+	char	**splited;
+	int		i;
 
-// 	i = 0;
-// 	if (str[i] == '-' || str[i] == '+')
-// 		i++;
-// 	while (str[i])
-// 	{
-// 		if (!ft_isdigit(str[i]))
-// 			return (1);
-// 		i++;
-// 	}
-// 	return (0);
-// }
+	splited = ft_split(arg, ' ');
+	if (!splited)
+		error_message(lst);
+	i = -1;
+	while (splited[++i])
+		ft_add_arg_stack(lst, splited[i]);
+	while (i)
+	{
+		free(splited[i]);
+		i--;
+	}
+	free(splited[0]);
+	free(splited);
+}

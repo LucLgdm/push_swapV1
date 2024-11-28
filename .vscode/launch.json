@@ -6,12 +6,12 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/push_swap",
-            "args": ["0", "2"], // Arguments si nécessaire
+            "args": ["0", "25"], // Arguments si nécessaire
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
-            "externalConsole": false, // Mettre à true si tu veux une console externe
-            "MIMode": "gdb", // ou "lldb" si tu utilises LLDB
+            "externalConsole": false,
+            "MIMode": "gdb",
             "setupCommands": [
                 {
                     "description": "Activer le formatage",
