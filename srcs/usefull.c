@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 12:27:25 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/11/28 15:06:42 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/11/29 12:44:03 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,39 @@ void	ft_free_stack(t_stack *a, t_stack *b)
 		free(b->stack);
 		b->stack = NULL;
 	}
+	free(a);
+	free(b);
+}
+
+t_stack	*init_b(t_stack **a)
+{
+	t_stack	*b;
+	
+	b = (t_stack *)malloc(sizeof(t_stack));
+	if (!b)
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit(EXIT_FAILURE);
+	}
+	b->stack = (int *)malloc((*a)->size * sizeof(int));
+	if (!b->stack)
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit(EXIT_FAILURE);
+	}
+	b->size = (*a)->size;
+	return (b);
+}
+
+bool	is_sorted(t_stack **a)
+{
+	int i;
+
+	i = -1;
+	while (++i < (*a)->size - 1)
+	{
+		if (!((*a)->stack[i] > (*a)->stack[i + 1]))
+			return (false);
+	}
+	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 18:00:12 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/11/28 15:55:28 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/11/29 12:15:03 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,15 @@ t_stack	*parse(int argc, char **argv)
 	t_list	*tmp;
 	int		i;
 
+	if (argc == 1)
+	{
+		ft_putstr_fd("Eroor\n", 2);
+		exit(EXIT_FAILURE);
+	}
 	lst = NULL;
-	i = 0;
+	i = argc;
 	tmp = lst;
-	while (++i < argc)
+	while (--i)
 		ft_add_arg_stack(&lst, argv[i]);
 	result = (t_stack *)malloc(sizeof(t_stack));
 	if (!result)
