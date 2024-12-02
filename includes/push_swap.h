@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 12:29:22 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/12/02 10:24:13 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/02 14:49:55 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,13 @@ void	chunks_sort(t_stack **a, t_stack **b);
 void	radix_sort(t_stack **a, t_stack **b);
 
 // Usefull
-t_stack	*init_b(t_stack **a);
+t_stack	*init_b(void);
 void	ft_free_stack(t_stack *a, t_stack *b);
 void	error_message(t_list **lst);
 void	delete_content(void *content);
 bool	is_sorted(t_stack **a);
+int		ft_min(t_stack **a);
+int		ft_index_min(t_stack **a, int min);
 
 // Stack
 int		ft_push(t_stack **a);

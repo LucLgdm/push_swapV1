@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 14:22:58 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/12/02 10:06:29 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/02 10:52:29 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ra(t_stack **a)
 	while (++i < (*a)->size)
 		(*a)->stack[i] = tmp[i];
 	free(tmp);
-    ft_putstr_fd("ra\n", 1);
+	ft_putstr_fd("ra\n", 1);
 }
 
 void	rb(t_stack **b)
@@ -53,7 +53,7 @@ void	rb(t_stack **b)
 	while (++i < (*b)->size)
 		(*b)->stack[i] = tmp[i];
 	free(tmp);
-    ft_putstr_fd("rb\n", 1);
+	ft_putstr_fd("rb\n", 1);
 }
 
 void	ra_chut(t_stack **a)
@@ -98,9 +98,9 @@ void	rb_chut(t_stack **b)
 	free(tmp);
 }
 
-void    rr(t_stack **a, t_stack **b)
+void	rr(t_stack **a, t_stack **b)
 {
-    ra_chut(a);
-    rb_chut(b);
-    ft_putstr_fd("rr\n", 1);
+	ra_chut(a);
+	rb_chut(b);
+	ft_putstr_fd("rr\n", 1);
 }
