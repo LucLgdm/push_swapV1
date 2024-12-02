@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 18:00:43 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/11/29 17:17:07 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/02 10:26:11 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,24 @@ void	sort_two(t_stack **a)
 
 void	sort_three(t_stack **a)
 {
-    int i = -1;
-    while (!is_sorted(a) && ++i < 3)
+	while (!is_sorted(a))
+	{
+		if ((*a)->stack[2] > (*a)->stack[1] && (*a)->stack[2] > (*a)->stack[0])
+			ra(a);
+		else if ((*a)->stack[1] > (*a)->stack[0] && (*a)->stack[1] > (*a)->stack[2])
+			rra(a);
+		else if ((*a)->stack[2] > (*a)->stack[1])
+			sa(a);
+	}
+}
+
+void    sort_four( t_stack **a,  t_stack **b)
+{
+    while (!is_sorted(a))
     {
-        if ((*a)->stack[2] > (*a)->stack[1] && (*a)->stack[2] > (*a)->stack[0])
-            ra(a);
-        else if ((*a)->stack[2] > (*a)->stack[1])
-            sa(a);
-        for (int j = 0; j < (*a)->size; j++) ft_printf("a[%i] = %i\n", j, (*a)->stack[j]);
+        pb(b, a);
+        sort_three(a);
+        pa(a, b);
+        
     }
 }

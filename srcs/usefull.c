@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 12:27:25 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/11/29 12:44:03 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/02 10:32:59 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ t_stack	*init_b(t_stack **a)
 		ft_putstr_fd("Error\n", 2);
 		exit(EXIT_FAILURE);
 	}
-	b->stack = (int *)malloc((*a)->size * sizeof(int));
+	b->size = 0;
+	b->stack = (int *)malloc(((*b)->size + 1)* sizeof(int));
 	if (!b->stack)
 	{
 		ft_putstr_fd("Error\n", 2);
 		exit(EXIT_FAILURE);
 	}
-	b->size = (*a)->size;
 	return (b);
 }
 

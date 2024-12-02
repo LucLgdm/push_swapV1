@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 12:29:22 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/11/29 16:15:20 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/02 10:24:13 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ int		doppel(int result, t_list **lst);
 // Sorting
 void	sort_two(t_stack **a);
 void	sort_three(t_stack **a);
-void	sort_big(t_stack *a);
+void	sort_four(t_stack **a, t_stack **b);
+void	sort_five(t_stack **a, t_stack **b);
+void	chunks_sort(t_stack **a, t_stack **b);
+void	radix_sort(t_stack **a, t_stack **b);
 
 // Usefull
 t_stack	*init_b(t_stack **a);
@@ -54,11 +57,19 @@ void	sb(t_stack **b);
 void	sa_chut(t_stack **a);
 void	sb_chut(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
-	// reverse
+	// rotate
 void	ra(t_stack **a);
 void	rb(t_stack **b);
 void	ra_chut(t_stack **a);
 void	rb_chut(t_stack **b);
 void	rr(t_stack **a, t_stack **b);
-	// ra rb rr / rra rrb rrr / pb pb
+	// reverse rotate
+void	rra(t_stack **a);
+void	rrb(t_stack **b);
+void	rra_chut(t_stack **a);
+void	rrb_chut(t_stack **b);
+void	rrr(t_stack **a, t_stack **b);
+	// push
+void	pa(t_stack **a, t_stack **b);
+void	pb(t_stack **b, t_stack **a);
 #endif

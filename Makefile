@@ -6,7 +6,7 @@
 #    By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/25 12:24:12 by lde-merc          #+#    #+#              #
-#    Updated: 2024/11/27 13:44:03 by lde-merc         ###   ########.fr        #
+#    Updated: 2024/12/02 09:32:39 by lde-merc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ $(NAME): $(OBJ) $(LIBFT)
 		
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@ -I$(INCLUDES)
+	$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES)
 
 clean:
 	@rm -rf $(OBJ_DIR)

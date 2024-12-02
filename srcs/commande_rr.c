@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   commande_r.c                                       :+:      :+:    :+:   */
+/*   commande_rr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/29 14:22:58 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/12/02 10:06:29 by lde-merc         ###   ########.fr       */
+/*   Created: 2024/12/02 09:28:23 by lde-merc          #+#    #+#             */
+/*   Updated: 2024/12/02 09:42:19 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ra(t_stack **a)
+void	rra(t_stack **a)
 {
 	int	*tmp;
 	int	i;
@@ -24,17 +24,17 @@ void	ra(t_stack **a)
 		ft_putstr_fd("Error\n", 2);
 		exit(1);
 	}
-	tmp[0] = (*a)->stack[(*a)->size - 1];
-	while (++i < (*a)->size - 1)
-		tmp[i + 1] = (*a)->stack[i];
+	tmp[(*a)->size - 1] = (*a)->stack[0];
+	while (++i < (*a)->size - 2)
+		tmp[i] = (*a)->stack[i + 1];
 	i = -1;
-	while (++i < (*a)->size)
+	while (++i < (*a)->size - 1)
 		(*a)->stack[i] = tmp[i];
 	free(tmp);
-    ft_putstr_fd("ra\n", 1);
+	ft_putstr_fd("rra\n", 1);
 }
 
-void	rb(t_stack **b)
+void	rrb(t_stack **b)
 {
 	int	*tmp;
 	int	i;
@@ -46,17 +46,17 @@ void	rb(t_stack **b)
 		ft_putstr_fd("Error\n", 2);
 		exit(1);
 	}
-	tmp[0] = (*b)->stack[(*b)->size - 1];
-	while (++i < (*b)->size - 1)
-		tmp[i + 1] = (*b)->stack[i];
+	tmp[(*b)->size - 1] = (*b)->stack[0];
+	while (++i < (*b)->size - 2)
+		tmp[i] = (*b)->stack[i + 1];
 	i = -1;
-	while (++i < (*b)->size)
+	while (++i < (*b)->size - 1)
 		(*b)->stack[i] = tmp[i];
 	free(tmp);
-    ft_putstr_fd("rb\n", 1);
+	ft_putstr_fd("rrb\n", 1);
 }
 
-void	ra_chut(t_stack **a)
+void	rra_chut(t_stack **a)
 {
 	int	*tmp;
 	int	i;
@@ -68,16 +68,16 @@ void	ra_chut(t_stack **a)
 		ft_putstr_fd("Error\n", 2);
 		exit(1);
 	}
-	tmp[0] = (*a)->stack[(*a)->size - 1];
-	while (++i < (*a)->size - 1)
-		tmp[i + 1] = (*a)->stack[i];
+	tmp[(*a)->size - 1] = (*a)->stack[0];
+	while (++i < (*a)->size - 2)
+		tmp[i] = (*a)->stack[i + 1];
 	i = -1;
-	while (++i < (*a)->size)
+	while (++i < (*a)->size - 1)
 		(*a)->stack[i] = tmp[i];
 	free(tmp);
 }
 
-void	rb_chut(t_stack **b)
+void	rrb_chut(t_stack **b)
 {
 	int	*tmp;
 	int	i;
@@ -89,18 +89,18 @@ void	rb_chut(t_stack **b)
 		ft_putstr_fd("Error\n", 2);
 		exit(1);
 	}
-	tmp[0] = (*b)->stack[(*b)->size - 1];
-	while (++i < (*b)->size - 1)
-		tmp[i + 1] = (*b)->stack[i];
+	tmp[(*b)->size - 1] = (*b)->stack[0];
+	while (++i < (*b)->size - 2)
+		tmp[i] = (*b)->stack[i + 1];
 	i = -1;
-	while (++i < (*b)->size)
+	while (++i < (*b)->size - 1)
 		(*b)->stack[i] = tmp[i];
 	free(tmp);
 }
 
-void    rr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b)
 {
-    ra_chut(a);
-    rb_chut(b);
-    ft_putstr_fd("rr\n", 1);
+	rra_chut(a);
+	rrb_chut(b);
+	ft_putstr_fd("rrr\n", 1);
 }
