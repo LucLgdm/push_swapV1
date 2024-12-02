@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 12:28:53 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/12/02 14:38:07 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:08:30 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	main(int argc, char **argv)
 		sort_four(&a, &b);
 	else if (a->size == 5)
 		sort_five(&a, &b);
+	else
+		sort(&a, &b);
 	ft_printf("After sort\n");
 	for (int j = a->size - 1; j > -1; j--) ft_printf("a[%i] = %i\n", j, a->stack[j]);
 	ft_free_stack(a, b);

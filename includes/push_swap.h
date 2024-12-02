@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 12:29:22 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/12/02 14:49:55 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:49:59 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void	sort_two(t_stack **a);
 void	sort_three(t_stack **a);
 void	sort_four(t_stack **a, t_stack **b);
 void	sort_five(t_stack **a, t_stack **b);
-void	chunks_sort(t_stack **a, t_stack **b);
+void	sort(t_stack **a, t_stack **b);
+void	bucket_sort(t_stack **a, t_stack **b);
 void	radix_sort(t_stack **a, t_stack **b);
 
 // Usefull
@@ -46,11 +47,12 @@ void	error_message(t_list **lst);
 void	delete_content(void *content);
 bool	is_sorted(t_stack **a);
 int		ft_min(t_stack **a);
+int		ft_max(t_stack **a);
 int		ft_index_min(t_stack **a, int min);
 
-// Stack
-int		ft_push(t_stack **a);
-int		ft_pop(t_stack **a);
+// Quick sort
+int		*quick_sort(t_stack **a, int low, int high);
+int		partition(int *arr, int low, int high);
 
 // Commande
 	// swap

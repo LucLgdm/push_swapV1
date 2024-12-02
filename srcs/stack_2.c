@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   usefull.c                                          :+:      :+:    :+:   */
+/*   stack_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 12:27:25 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/12/02 15:10:09 by lde-merc         ###   ########.fr       */
+/*   Created: 2024/12/02 16:50:23 by lde-merc          #+#    #+#             */
+/*   Updated: 2024/12/02 16:52:09 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	error_message(t_list **lst)
+int ft_max(t_stack **a)
 {
-	ft_lstclear(lst, &delete_content);
-	ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
-}
+    int max;
+    int i;
 
-void	delete_content(void *content)
-{
-	(void)content;
-}
-
-void	sort(t_stack **a, t_stack **b)
-{
-	if ((*a)->size <= 100)
-		chunks_sort(a, b);
-	else
-		radix_sort(a, b);
+    i = -1;
+    max = (*a)->stack[0];
+    while (++i < (*a)->size)
+    {
+        if ((*a)->stack[i] > max)
+            max = (*a)->stack[i];
+    }
+    return (max);
 }
