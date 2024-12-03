@@ -2,19 +2,20 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Déboguer Programme C/C++",
+            "name": "Debug Executable",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/push_swap",
-            "args": ["-4 3 50 -48"], // Arguments si nécessaire
+            "program": "${workspaceFolder}/push_swap", // Chemin vers ton exécutable
+            "args": ["2 5 8 9 6 3 -4 -1 -7 1 4 7"], // Arguments pour le programme
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
+            "preLaunchTask": "Build with Make", // Associe la tâche make
             "setupCommands": [
                 {
-                    "description": "Activer le formatage",
+                    "description": "Enable pretty-printing for gdb",
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
