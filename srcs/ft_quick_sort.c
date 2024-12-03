@@ -6,26 +6,23 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:35:21 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/12/02 16:44:49 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/03 17:03:18 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	*quick_sort(t_stack **a, int low, int high)
+int	*ft_quick_sort(int *arr, int low, int high)
 {
 	int	pivot;
-	int	arr[(*a)->size];
 	int	i;
 
 	i = -1;
-	while (++i < (*a)->size)
-		arr[i] = (*a)->stack[i];
 	if (low < high)
 	{
 		pivot = partition(arr, low, high);
-		quick_sort(arr, low, pivot - 1);
-		quick_sort(arr, pivot + 1, high);
+		ft_quick_sort(arr, low, pivot - 1);
+		ft_quick_sort(arr, pivot + 1, high);
 	}
     return (arr);
 }

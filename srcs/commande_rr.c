@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 09:28:23 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/12/02 12:31:11 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/03 15:46:59 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	rrb(t_stack **b)
 	while (++i < (*b)->size - 1)
 		tmp[i] = (*b)->stack[i + 1];
 	i = -1;
-	while (++i < (*b)->size - 1)
+	while (++i < (*b)->size)
 		(*b)->stack[i] = tmp[i];
 	free(tmp);
 	ft_putstr_fd("rrb\n", 1);

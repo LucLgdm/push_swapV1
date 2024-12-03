@@ -6,39 +6,11 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:26:31 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/12/02 15:03:40 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/03 17:04:30 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-int	ft_min(t_stack **a)
-{
-	int	min;
-	int	i;
-
-	i = -1;
-	min = (*a)->stack[0];
-	while (++i < (*a)->size)
-	{
-		if ((*a)->stack[i] < min)
-			min = (*a)->stack[i];
-	}
-	return (min);
-}
-
-int	ft_index_min(t_stack **a, int min)
-{
-	int	i;
-
-	i = -1;
-	while (++i < (*a)->size)
-	{
-		if((*a)->stack[i] == min)
-			break ;
-	}
-	return (i);
-}
 
 void	ft_free_stack(t_stack *a, t_stack *b)
 {
@@ -87,4 +59,40 @@ bool	is_sorted(t_stack **a)
 			return (false);
 	}
 	return (true);
+}
+
+bool	is_r_sorted(t_stack **b)
+{
+	int	i;
+
+	i = -1;
+	while (++i < (*b)->size - 1)
+	{
+		if (!((*b)->stack[i] < (*b)->stack[i + 1]))
+			return (false);
+	}
+	return (true);
+}
+
+void	update_median(t_stack **stack)
+{
+	int *sorted;
+	int mid;
+
+	sorted = malloc((*stack)->size * sizeof(int));
+	if (sorted == NULL)
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit(1);
+	}
+	ft_memcpy(sorted, (*stack)->stack, (*stack)->size * sizeof(int));
+
+	ft_quick_sort(sorted, 0, (*stack)->size - 1);
+	mid = (*stack)->size / 2;
+	if ((*stack)->size % 2 == 0)
+		(*stack)->median = (sorted[mid - 1] + sorted[mid]) / 2;
+	else
+		(*stack)->median = sorted[mid];
+
+	free(sorted);
 }

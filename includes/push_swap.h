@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 12:29:22 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/12/02 16:49:59 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/03 17:03:25 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ struct	s_stack
 {
 	int	*stack;
 	int	size;
+	int	median;
 };
 
 // Parsing
@@ -38,7 +39,10 @@ void	sort_four(t_stack **a, t_stack **b);
 void	sort_five(t_stack **a, t_stack **b);
 void	sort(t_stack **a, t_stack **b);
 void	bucket_sort(t_stack **a, t_stack **b);
+void	sort_b(t_stack **b);
 void	radix_sort(t_stack **a, t_stack **b);
+void	my_way(t_stack **a, t_stack **b);
+bool	is_in_bucket(int nb, int *sorted, int i, int bucket_size);
 
 // Usefull
 t_stack	*init_b(void);
@@ -46,12 +50,15 @@ void	ft_free_stack(t_stack *a, t_stack *b);
 void	error_message(t_list **lst);
 void	delete_content(void *content);
 bool	is_sorted(t_stack **a);
+bool	is_r_sorted(t_stack **b);
 int		ft_min(t_stack **a);
 int		ft_max(t_stack **a);
 int		ft_index_min(t_stack **a, int min);
+int		ft_index_max(t_stack **a, int max);
+void	update_median(t_stack **stack);
 
 // Quick sort
-int		*quick_sort(t_stack **a, int low, int high);
+int		*ft_quick_sort(int *arr, int low, int high);
 int		partition(int *arr, int low, int high);
 
 // Commande
