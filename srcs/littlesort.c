@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 18:00:43 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/12/03 15:40:57 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/04 09:49:58 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,20 @@ void	sort_three(t_stack **a)
 
 void	sort_four(t_stack **a, t_stack **b)
 {
-	int	min;
 	int	index_min;
 
 	if (is_sorted(a))
 		return ;
-	min = ft_min(a);
-	index_min = ft_index_min(a, min);
+	(*a)->min = ft_min(a);
+	index_min = ft_index_min(a, (*a)->min);
 	if (index_min <= (*a)->size / 2)
 	{
-		while (min != (*a)->stack[(*a)->size - 1])
+		while ((*a)->min != (*a)->stack[(*a)->size - 1])
 			ra(a);
 	}
 	else
 	{
-		while (min != (*a)->stack[(*a)->size - 1])
+		while ((*a)->min != (*a)->stack[(*a)->size - 1])
 			rra(a);
 	}
 	if (is_sorted(a))
@@ -60,22 +59,21 @@ void	sort_four(t_stack **a, t_stack **b)
 
 void	sort_five(t_stack **a, t_stack **b)
 {
-	int	min;
 	int	index_min;
 
 	if (is_sorted(a))
 		return ;
-	min = ft_min(a);
-	index_min = ft_index_min(a, min);
-	ft_printf("min = %i, index min = %i\n", min, index_min);
+	(*a)->min = ft_min(a);
+	index_min = ft_index_min(a, (*a)->min);
+	ft_printf("min = %i, index min = %i\n", (*a)->min, index_min);
 	if (index_min <= (*a)->size / 2)
 	{
-		while (min != (*a)->stack[(*a)->size - 1])
+		while ((*a)->min != (*a)->stack[(*a)->size - 1])
 			ra(a);
 	}
 	else
 	{
-		while (min != (*a)->stack[(*a)->size - 1])
+		while ((*a)->min != (*a)->stack[(*a)->size - 1])
 			rra(a);
 	}
 	if (is_sorted(a))

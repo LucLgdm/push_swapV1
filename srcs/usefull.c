@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 12:27:25 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/12/03 16:42:44 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/04 15:34:34 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,4 @@ void	sort(t_stack **a, t_stack **b)
 {
 	if ((*a)->size <= 50)
 		my_way(a, b);
-		// bucket_sort(a, b);
-	// else
-	// 	radix_sort(a, b);
 }

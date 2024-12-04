@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:43:09 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/12/03 17:40:14 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/04 15:56:30 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,48 +14,60 @@
 
 void	my_way(t_stack **a, t_stack **b)
 {
-	while ((*a)->size != 3)
+	while ((*a)->size != 2)
 	{
         update_median(b);
 		pb(b, a);
 		if ((*b)->size > 1)
-		{
-            for (int j = (*b)->size - 1; j > -1; j--) ft_printf("b[%i] = %i\n", j, (*b)->stack[j]);
             sort_b(b);
-        }
 	}
     if(!is_sorted(a))
-	    sort_three(a);
+	    sort_two(a);
 	while ((*b)->size != 0)
-		pa(b, a);
+	{
+		while ((*a)->stack[0] < (*a)->stack[(*a)->size - 1] && (*a)->stack[0] > (*b)->stack[(*b)->size - 1])
+			rra(a);
+		pa(a, b);
+	}
 }
+
 void	sort_b(t_stack **b)
 {
+	int	mid;
+	int	mid2;
+
+	mid = ((*b)->size - 1) / 2;
+	mid2 = (*b)->stack[mid];
 	while (!is_r_sorted(b))
 	{
+		update_median(b);
 		if ((*b)->size == 2)
 		{
             sb(b);
             break ;
         }
-		update_median(b);
-		if ((*b)->stack[(*b)->size - 1] <= (*b)->median)
+		(*b)->min = ft_min(b);
+		if ((*b)->stack[(*b)->size - 1] == (*b)->min)
+			rb(b);
+		else if ((*b)->stack[(*b)->size - 1] > (*b)->median)
 		{
-            rrb(b);
-            sb(b);
-            rb(b);
-            rb(b);
-            for (int j = (*b)->size - 1; j > -1; j--) ft_printf("b[%i] = %i\n", j, (*b)->stack[j]);
-        }
+			while ((*b)->stack[(*b)->size - 1] < (*b)->stack[(*b)->size - 2])
+			{
+				sb(b);
+				rb(b);
+			}
+			while ((*b)->stack[mid] != mid2)
+				rrb(b);
+		}
 		else
 		{
-            sb(b);
-            rb(b);
-            // if ((*b)->stack[(*b)->size - 1] > (*b)->stack[(*b)->size - 2])
-            //     sb(b);
-			// else
-            //     rrb(b);
-            for (int j = (*b)->size - 1; j > -1; j--) ft_printf("b[%i] = %i\n", j, (*b)->stack[j]);
+			while ((*b)->stack[(*b)->size - 1] > (*b)->stack[0])
+			{
+				rrb(b);
+				sb(b);
+			}
+			while ((*b)->stack[mid] != mid2)
+				rb(b);
 		}
 	}
 }

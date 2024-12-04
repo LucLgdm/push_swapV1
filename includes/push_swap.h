@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 12:29:22 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/12/03 17:03:25 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/04 09:47:50 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ struct	s_stack
 	int	*stack;
 	int	size;
 	int	median;
+	int	min;
+	int	max;
 };
 
 // Parsing
