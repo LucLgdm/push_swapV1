@@ -6,16 +6,18 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 18:00:43 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/12/04 09:49:58 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/05 10:48:16 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+extern int compteur;
+
 void	sort_two(t_stack **a)
 {
 	if (!is_sorted(a))
-		sa(a);
+		{sa(a); compteur++;}
 }
 
 void	sort_three(t_stack **a)

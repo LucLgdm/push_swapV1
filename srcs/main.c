@@ -6,16 +6,21 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 12:28:53 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/12/02 15:08:30 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/05 16:07:27 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+int compteur = 0;
+
+extern int compteur;
+
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
+
 
 	a = parse(argc, argv);
 	ft_printf("Before sort\n");
@@ -32,9 +37,10 @@ int	main(int argc, char **argv)
 	else if (a->size == 5)
 		sort_five(&a, &b);
 	else
-		sort(&a, &b);
+		radix_sort(&a, &b);
 	ft_printf("After sort\n");
 	for (int j = a->size - 1; j > -1; j--) ft_printf("a[%i] = %i\n", j, a->stack[j]);
 	ft_free_stack(a, b);
+	ft_printf("Compte = %i\n", compteur);
 	return (0);
 }

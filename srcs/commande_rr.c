@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 09:28:23 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/12/04 15:53:22 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/05 10:30:19 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,45 +14,27 @@
 
 void	rra(t_stack **a)
 {
-	int	*tmp;
+	int	tmp;
 	int	i;
 
-	tmp = (int *)malloc((*a)->size * sizeof(int));
-	if (!tmp)
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(1);
-	}
-	tmp[(*a)->size - 1] = (*a)->stack[0];
+	tmp = (*a)->stack[0];
 	i = -1;
 	while (++i < (*a)->size - 1)
-		tmp[i] = (*a)->stack[i + 1];
-	i = -1;
-	while (++i < (*a)->size)
-		(*a)->stack[i] = tmp[i];
-	free(tmp);
+		(*a)->stack[i] = (*a)->stack[i + 1];
+	(*a)->stack[(*a)->size - 1] = tmp;
 	ft_putstr_fd("rra\n", 1);
 }
 
 void	rrb(t_stack **b)
 {
-	int	*tmp;
+	int	tmp;
 	int	i;
 
-	tmp = (int *)malloc((*b)->size * sizeof(int));
-	if (!tmp)
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(1);
-	}
-	tmp[(*b)->size - 1] = (*b)->stack[0];
+	tmp = (*b)->stack[0];
 	i = -1;
-	while (++i < (*b)->size - 1)
-		tmp[i] = (*b)->stack[i + 1];
-	i = -1;
-	while (++i < (*b)->size - 1)
-		(*b)->stack[i] = tmp[i];
-	free(tmp);
+	while (++i < (*b)->size -1)
+		(*b)->stack[i] = (*b)->stack[i + 1];
+	(*b)->stack[(*b)->size - 1] = tmp;
 	ft_putstr_fd("rrb\n", 1);
 }
 

@@ -6,7 +6,7 @@
 #    By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/25 12:24:12 by lde-merc          #+#    #+#              #
-#    Updated: 2024/12/02 09:32:39 by lde-merc         ###   ########.fr        #
+#    Updated: 2024/12/05 15:54:58 by lde-merc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,12 +23,12 @@ INCLUDES = includes/
 all: makelibft $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
-		$(CC) $(CFLAGS) $(OBJ) -Llibft -lft -o $(NAME)
+		$(CC) $(OBJ) -Llibft -lft -o $(NAME)
 		@echo "Creation of the executable $(NAME)"
 		
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES)
+	$(CC) -c $< -o $@ -I $(INCLUDES)
 
 clean:
 	@rm -rf $(OBJ_DIR)

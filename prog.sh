@@ -1,19 +1,27 @@
 #!/bin/bash
 
-# Générer un nombre aléatoire entre 10 et 50
-count=$(( RANDOM % 41 + 10 ))
+# Nombre de valeurs distinctes à générer
+count=60
 
-echo "Génération de $count nombres entiers :"
+echo "Génération de $count nombres distincts :"
 
-# Générer les entiers et les stocker dans une variable
+# Plage des nombres aléatoires
+min=-5000
+max=5000
+
+# Générer des entiers distincts dans une plage large
 args=""
-for ((i=1; i<=count; i++)); do
-  args="$args $(( RANDOM % 1000 ))" # Génère un entier entre 0 et 999
+declare -A unique_numbers  # Utilisation d'un tableau associatif pour assurer l'unicité
+
+while [ "${#unique_numbers[@]}" -lt "$count" ]; do
+    num=$(( RANDOM % (max - min + 1) + min ))  # Génère un entier entre $min et $max
+    if [ -z "${unique_numbers[$num]}" ]; then
+        unique_numbers[$num]=1  # Marque ce nombre comme utilisé
+        args="$args $num"
+    fi
 done
 
 # Afficher les entiers générés
-echo "Arguments :$args"
+echo "Arguments : $args"
 
-# Lancer ton programme avec les arguments générés
 ./push_swap $args
-

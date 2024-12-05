@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 12:29:22 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/12/04 09:47:50 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/05 16:09:04 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	sort(t_stack **a, t_stack **b);
 void	bucket_sort(t_stack **a, t_stack **b);
 void	sort_b(t_stack **b);
 void	radix_sort(t_stack **a, t_stack **b);
+int		get_max_bits(int max);
 void	my_way(t_stack **a, t_stack **b);
 bool	is_in_bucket(int nb, int *sorted, int i, int bucket_size);
 
