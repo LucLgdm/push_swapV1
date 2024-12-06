@@ -6,7 +6,7 @@ count=60
 echo "Génération de $count nombres distincts :"
 
 # Plage des nombres aléatoires
-min=-5000
+min=0
 max=5000
 
 # Générer des entiers distincts dans une plage large

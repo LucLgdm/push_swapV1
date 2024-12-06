@@ -1,16 +1,21 @@
 {
+
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build with Make",
+            "label": "build",
             "type": "shell",
-            "command": "make",
-            "args": [],
+            "command": "gcc",
+            "args": [
+                "-g", // Générer les symboles de debug
+                "${file}",
+                "-o",
+                "${fileDirname}/a.out"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
-            },
-            "problemMatcher": []
+            }
         }
     ]
 }

@@ -2,20 +2,19 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug Executable",
+            "name": "Debug push_swap",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/push_swap", // Chemin vers ton exécutable
-            "args": ["843 29 82 502 606 665 761 221 314 34 887 85 883 542 780 165"], // Arguments pour le programme
+            "program": "${workspaceFolder}/push_swap",
+            "args": ["2777 1984 3186 3897 344 3542 2518 3369 22 1392 4257 3166 553 1751 685 2369 2241 2832 589 2605 2387 3740 4345 832 845 1555 3521 2312 3478 69 3917 52 2689 2568 4577 3460 947 2474 4148 222 1326 3265 3500 3735 392 500 2486 2789 2300 1322 755 3343 3686 724 3598 4954 286 1300 1372 2638"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
-            "preLaunchTask": "Build with Make", // Associe la tâche make
             "setupCommands": [
                 {
-                    "description": "Enable pretty-printing for gdb",
+                    "description": "Activer l'impression automatique de variables",
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }

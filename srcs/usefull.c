@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 12:27:25 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/12/05 16:06:39 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/06 16:33:39 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@ void	delete_content(void *content)
 
 void	sort(t_stack **a, t_stack **b)
 {
-	ft_printf("tri\n");
-	// if ((*a)->size <= 50)
-	// 	my_way(a, b);
-	// else
+	
 	radix_sort(a, b);
 }
