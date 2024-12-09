@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Nombre de valeurs distinctes à générer
-count=60
+count=50
 
 echo "Génération de $count nombres distincts :"
 
 # Plage des nombres aléatoires
-min=0
+min=-5000
 max=5000
 
 # Générer des entiers distincts dans une plage large

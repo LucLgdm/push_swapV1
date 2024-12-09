@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 12:29:22 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/12/06 12:33:30 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/09 10:28:12 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int		ft_index_max(t_stack **a, int max);
 void	update_median(t_stack **stack);
 
 // Quick sort
-int		*ft_quick_sort(int *arr, int low, int high);
+void	ft_quick_sort(int *arr, int low, int high);
 int		partition(int *arr, int low, int high);
 
 // Commande
@@ -86,4 +86,6 @@ void	rrr(t_stack **a, t_stack **b);
 	// push
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **b, t_stack **a);
+void	pa_chut(t_stack **a, t_stack **b);
+void	pb_chut(t_stack **b, t_stack **a);
 #endif

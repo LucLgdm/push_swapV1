@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:26:31 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/12/04 09:48:24 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/09 15:27:00 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ t_stack	*init_b(void)
 		ft_putstr_fd("Error\n", 2);
 		exit(EXIT_FAILURE);
 	}
+	b->max = 0;
+	b->median = 0;
+	b->min = 0;
 	return (b);
 }
 

@@ -6,7 +6,7 @@
 /*   By: lde-merc <lde-merc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 12:28:53 by lde-merc          #+#    #+#             */
-/*   Updated: 2024/12/05 16:07:27 by lde-merc         ###   ########.fr       */
+/*   Updated: 2024/12/09 14:50:06 by lde-merc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int	main(int argc, char **argv)
 
 
 	a = parse(argc, argv);
-	ft_printf("Before sort\n");
-	for (int j = a->size - 1; j > -1; j--) ft_printf("a[%i] = %i\n", j, a->stack[j]);
 	b = init_b();
+	ft_printf("After sort\n");
+		for (int j = a->size - 1; j > -1; j--) ft_printf("a[%i] = %i\n", j, a->stack[j]);
 	if (a->size == 1)
 		return (0);
 	else if (a->size == 2)
@@ -39,8 +39,8 @@ int	main(int argc, char **argv)
 	else
 		radix_sort(&a, &b);
 	ft_printf("After sort\n");
-	for (int j = a->size - 1; j > -1; j--) ft_printf("a[%i] = %i\n", j, a->stack[j]);
+		for (int j = a->size - 1; j > -1; j--) ft_printf("a[%i] = %i\n", j, a->stack[j]);
 	ft_free_stack(a, b);
-	ft_printf("Compte = %i\n", compteur);
+	ft_printf("Nombre d'operation : %i\n", compteur);
 	return (0);
 }
